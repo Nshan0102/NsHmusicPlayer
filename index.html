@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>NsH MUSIC PLAYER</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<div class="container">
+		
+		<div class="header">
+			<div class="banner">
+				<img class="banner-img" src="images/banner.jpg" alt="">
+			</div>
+		</div>
+
+		<div class="player-cont"  id="player">
+			<div class="player-cont-grid">
+				<div class="logo-cont">
+					<img class="logo-img" src="images/audio-player.png" alt="">
+				</div>
+				<div class="song-name">
+					<div id="songTitle" class="song-title"></div>
+				</div>
+				<div class="song-slider">
+					<input id="songSlider" class="song-slider-seek" type="range" min="0" step="1" onchange="seekSong()" />	
+				</div>
+				<div class="time-cont">
+					<div class="time-dur">
+						<div id="currentTime" class="time" ></div>
+						<div id="duration" class="dur"></div>
+					</div>
+				</div>
+				<div class="controllers-cont">
+					<img src="images/previous.png" class="controller-icons" onclick="previous();" />
+					<img src="images/backward.png" class="controller-icons" onclick="decreasePlaybackRate();" />
+					<img src="images/pause.png" width="40px" onclick="playOrPauseSong(this);" />
+					<img src="images/forward.png" class="controller-icons" onclick="increasePlaybackRate();" />
+					<img src="images/next.png" class="controller-icons" onclick="next();" />
+					<img src="images/volume-down.png" class="volume-icons" onclick="decreaseVolume();" />
+					<input id="volumeSlider" class="volume-slider" type="range" min="0" max="1" step="0.01" onchange="adjustVolume()" />
+					<img src="images/volume-up.png" class="volume-icons" onclick="increaseVolume();" />
+				</div>
+				<div id="nextSongTitle" class="next-song-title"><b>Next Song :</b></div>
+			</div>
+		</div>
+		
+		<div class="playlist-cont">
+			<div id="0" class="playlist-item"><img class="plimg" src="images/play.png" width="20px" onclick="loadSongPL(this.parentNode);" />Adreus - Siempre</div>
+			<div id="1" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Alba - pami pati</div>
+			<div id="2" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Don Moen - I Want</div>
+			<div id="3" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Giluan - quand qe mara</div>
+			<div id="4" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Kiara - Come with me</div>
+			<div id="5" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Olala - olala song</div>
+			<div id="6" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Omega - the best</div>
+			<div id="7" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Siera - mi amo</div>
+			<div id="8" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Simione- lets go</div>
+			<div id="9" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Someone - some song</div>
+			<div id="10" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Arabic Remix Ya Lili Samet Koban</div>
+			<div id="11" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Dancing Shadows</div>
+			<div id="12" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />David Tatevosian - Yeli yeli Nikol jan</div>
+			<div id="13" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Edo Barnaulski - Nikol Pashinyan</div>
+			<div id="14" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />F.Duval - Ballade Pour Adeline</div>
+			<div id="15" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />F.Pappetti - Emanuelle</div>
+			<div id="16" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Flash Dance - Love Theme</div>
+			<div id="17" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />G.Zamfir - Yesterday</div>
+			<div id="18" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />HRAG - DUXOV</div>
+			<div id="19" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />JAMES LAST - BALLADE POUR ADELINE</div>
+			<div id="20" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />JOE DASSIN -A TOI</div>
+			<div id="21" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />LAV SAQSAFON</div>
+			<div id="22" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Memories of Mallorea</div>
+			<div id="23" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Michael Legrand - Parapluies De Sherbourg</div>
+			<div id="24" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Mihran-Tsarukyan-Ti-Moya-Ty-Moya</div>
+			<div id="25" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Once pon A Time In America - Cockey's Song</div>
+			<div id="26" class="playlist-item"><img class="plimg" src="images/play.png" onclick="loadSongPL(this.parentNode);" />Seduction</div>
+		</div>
+		
+		<div class="footer">
+			<div class="banner">
+				<img class="banner-img" src="images/banner.jpg" alt="">
+			</div>
+		</div>
+
+	</div>
+	<script type="text/javascript" src="player.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</body>
+</html>
